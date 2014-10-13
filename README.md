@@ -1,3 +1,3 @@
 PDF-Annotator
 =============
-Proof of concept. Merg TogetherJS drawing and PDFJS.
+Merge TogetherJS drawing and PDFJS to provide a proof of concept going forward on future projects.
