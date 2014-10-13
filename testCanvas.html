@@ -1,5 +1,6 @@
 <head>
-
+	<!-- http://www.williammalone.com/articles/create-html5-canvas-javascript-drawing-app/ -->
+	<!-- This is a really nice tutorial -->
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -7,6 +8,9 @@
 <body>
 	<div id="canvasDiv"></div>
 	<button class="clear">Clear</button>
+	<button class="purple">Purple</button>
+	<button class="green">Green</button>
+	<button class="yellow">Yellow</button>
 </body>
 
 <style type="text/css">
@@ -61,11 +65,19 @@ var clickY = new Array();
 var clickDrag = new Array();
 var paint;
 
+var colorPurple = "#cb3594";
+var colorGreen = "#659b41";
+var colorYellow = "#ffcf33";
+
+var curColor = colorPurple;
+var clickColor = new Array();
+
 function addClick(x, y, dragging)
 {
   clickX.push(x);
   clickY.push(y);
   clickDrag.push(dragging);
+  clickColor.push(curColor);
 }
 
 function redraw(){
@@ -84,6 +96,7 @@ function redraw(){
      }
      context.lineTo(clickX[i], clickY[i]);
      context.closePath();
+     context.strokeStyle = clickColor[i];
      context.stroke();
   }
 }
@@ -93,6 +106,19 @@ $('.clear').click(function() {
 	clickX = new Array();
 	clickY = new Array();
 	clickDrag = new Array();
+	clickColor = new Array();
 });
+
+$('.purple').click(function() {
+	curColor = colorPurple;
+})
+
+$('.green').click(function() {
+	curColor = colorGreen;
+})
+
+$('.yellow').click(function() {
+	curColor = colorYellow;
+})
 
 </script>
