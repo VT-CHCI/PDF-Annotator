@@ -83,7 +83,10 @@ function redraw(){
 }
 
 $('.clear').click(function() {
-	context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+	context.clearRect(0, 0, context.canvas.width, context.canvas.height); 
+	clickX = new Array();
+	clickY = new Array();
+	clickDrag = new Array();
 });
 
 </script>
