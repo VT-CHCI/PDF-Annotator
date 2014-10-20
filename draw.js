@@ -1,22 +1,24 @@
 'use strict'
-var canvasDiv = document.getElementById('viewer'); //The PDF Viewer
+// var canvasDiv = document.getElementById('viewer'); //The PDF Viewer
 var context = canvas.getContext('2d');
 
 // Width of entire document
 var canvasWidth = $('pdfViewer').width();;
 var canvasHeight = $('.pdfViewer').height();;
 
-canvas = document.createElement('canvas');
-canvas.setAttribute('width', canvasWidth);
-canvas.setAttribute('height', canvasHeight);
-canvas.setAttribute('z-index', 1000);
-canvas.setAttribute('id', 'canvas');
-canvasDiv.appendChild(canvas);
+// canvas = document.createElement('canvas');
+var canvas = $('canvas');
+console.log(canvas);
+// canvas.setAttribute('width', canvasWidth);
+// canvas.setAttribute('height', canvasHeight);
+// canvas.setAttribute('z-index', 1000);
+// canvas.setAttribute('id', 'canvas');
+// canvasDiv.appendChild(canvas);
 if(typeof G_vmlCanvasManager != 'undefined') {
   canvas = G_vmlCanvasManager.initElement(canvas);
 }
 
-$('#canvas').mousedown(function(e){
+$('#page1').mousedown(function(e){
   var mouseX = e.pageX - this.offsetLeft;
   var mouseY = e.pageY - this.offsetTop;
 
@@ -25,18 +27,18 @@ $('#canvas').mousedown(function(e){
   redraw();
 });
 
-$('#canvas').mousemove(function(e){
+$('#page1').mousemove(function(e){
   if(paint){
     addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
     redraw();
   }
 });
 
-$('#canvas').mouseup(function(e){
+$('#page1').mouseup(function(e){
   paint = false;
 });
 
-$('#canvas').mouseleave(function(e){
+$('#page1').mouseleave(function(e){
   paint = false;
 });
 
