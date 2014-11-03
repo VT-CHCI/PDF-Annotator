@@ -1,3 +1,4 @@
+// When modified, copy into pdfjs/web
 'use strict'
 // var canvasDiv = document.getElementById('viewer'); //The PDF Viewer
 var context = canvas.getContext('2d');
